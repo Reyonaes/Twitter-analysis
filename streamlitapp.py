@@ -19,6 +19,7 @@ def log_model (text):
     Log_reg=joblib.load("logisticregressionmodel.sav")
     tfidf=joblib.load("TFIDF.sav")
     transformed_text=np.vectorize(remove)(text,"@[\w]*")
+    transformed_text=str(transformed_text).split()
     transformed_text=tfidf.fit_transform(text)
     pred=Log_reg.predict_proba(transformed_text)
     pred_int=pred[:,1]>=0.3
