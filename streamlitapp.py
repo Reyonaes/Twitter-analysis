@@ -28,8 +28,8 @@ def log_model (text):
         st.write("Tweet is Racist/Sexist")
     else :
         st.write("Normal Tweet")
-st.title("Sentiment Analyser")
-st.markdown("ML model to analyse tweets and determine the sentiment")
+st.title("Sentiment Analyser using Twitter")
+st.markdown("ML model to analyse tweets and determine if they are racist/sexist or not")
 text=st.text_input("Tweet")
 if st.button("Predict") :
 	sentiment=log_model(text)
