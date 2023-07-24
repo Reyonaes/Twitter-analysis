@@ -22,7 +22,7 @@ def log_model (text):
     transformed_text=transformed_text.split()
     transformed_text=tfidf.transform(transformed_text)
     pred=Log_reg.predict_proba(transformed_text)
-    pred_int=pred[:,1]>=0.06474495
+    pred_int=pred[:,1]>=0.06474497
     pred_int=pred_int.astype(int)
     if pred_int.any() == 1:
         st.write("Tweet is Racist/Sexist")
