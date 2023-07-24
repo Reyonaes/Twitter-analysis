@@ -3,6 +3,8 @@ import streamlit as st
 from nltk.stem.porter import PorterStemmer
 import numpy as np
 import re
+import nltk
+nltk.download("stopwords")
 from nltk.corpus import stopwords
 def remove(text,pattern) :
     port_stem=PorterStemmer()
