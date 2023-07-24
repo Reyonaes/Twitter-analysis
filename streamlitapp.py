@@ -10,9 +10,8 @@ def remove(text,pattern) :
     port_stem=PorterStemmer()
     r=re.findall(pattern,text)
     for i in r :
-        text=re.sub(i," ",text)
+    	text=re.sub(i," ",text)
     text=re.sub("[^a-zA-Z#]"," ",text)
-    text=text.split()
     text=[port_stem.stem(word) for word in text if not word in stopwords.words("english")]
     text=" ".join(text)
     return text
@@ -20,6 +19,7 @@ def log_model (text):
     Log_reg=joblib.load("logisticregressionmodel.sav")
     tfidf=joblib.load("TFIDF.sav")
     transformed_text=np.vectorize(remove)(text,"@[\w]*")
+    transformed_text=transformed_text.split()
     transformed_text=tfidf.fit_transform(text)
     pred=Log_reg.predict_proba(transformed_text)
     pred_int=pred[:,1]>=0.3
